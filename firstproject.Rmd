@@ -1,0 +1,75 @@
+---
+title: "firstproject"
+author: "Sean Dube"
+date: "6/29/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(mosaic)
+library(datasets)
+data(iris)
+```
+
+## First Project for GITHUB using IRIS dataset 
+
+Goal: 
+
+1. Use R to analyze the IRIS dataset and answer simple questions.
+
+2. Upload to GITHUB for future use
+
+## Analyze IRIS Dataset
+
+Describe the distributions for each variable.
+
+```{r}
+gf_histogram(~Sepal.Length, data = iris)
+favstats(~Sepal.Length, data = iris)
+gf_histogram(~Sepal.Width, data = iris)
+favstats(~Sepal.Width, data = iris)
+gf_histogram(~Petal.Length, data = iris)
+favstats(~Petal.Length, data = iris)
+gf_histogram(~Petal.Width, data = iris)
+favstats(~Petal.Width, data = iris)
+```
+
+
+>Answer: Sepal Length seems to have a right skewed distribution with a median of 5.8cm and an IQR of .5cm. Median and IQR are the correct measure for center and spread since we have skewed distribution. Sepal Width seems to approximately normally distributed with a mean of 3.0573cm and a standard deviation of .4358663cm. Since this distribution is approximately normal we are able to use mean and standard deviations for measures of center and spread. Pedal Length has a right skew with a median of 4.31cmand an IQR of 3.5cm. Lastly, Pedal Width has a right skew with a median of 1.3cm and an IQR of 1.5cm.
+
+Group the flowers by species and then describe the distributions of each variable. 
+
+Distributions of each variable for Setosa Species
+
+```{r}
+setosa <- filter(iris, Species == "setosa")
+gf_histogram(~Sepal.Length, data = setosa)
+favstats(~Sepal.Length, data = setosa)
+gf_histogram(~Sepal.Width, data = setosa)
+favstats(~Sepal.Width, data = setosa)
+gf_histogram(~Petal.Length, data = setosa)
+favstats(~Petal.Length, data = setosa)
+gf_histogram(~Petal.Width, data = setosa)
+favstats(~Petal.Width, data = setosa)
+```
+
+>Answer: For the setosa species, the distribution of Sepal Length seems approximately normally distributed with a mean of 5.006cm and a standard deviation of .3524897cm. The distribution of Sepal Width seems approximatley normally distributed with a mean of 3.428cm and a standard deviation of .379064cm. Petal Length also seems to be normally distributed with a mean of 1.5cm and a standard deviation of .173664cm. Lastly, Petal Width seems to have slight right skew with a median of .2cm aand a IQR of .1cm
+
+Distributions of each variable for versicolor species
+
+```{r}
+versicolor <- filter(iris, Species == "versicolor")
+gf_histogram(~Sepal.Length, data = versicolor)
+favstats(~Sepal.Length, data = versicolor)
+gf_histogram(~Sepal.Width, data = versicolor)
+favstats(~Sepal.Width, data = versicolor)
+gf_histogram(~Petal.Length, data = versicolor)
+favstats(~Petal.Length, data = versicolor)
+gf_histogram(~Petal.Width, data = versicolor)
+favstats(~Petal.Width, data = versicolor)
+```
+
